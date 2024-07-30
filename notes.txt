@@ -1,0 +1,84 @@
+## Organizing code with export or import 
+ Learn how import and export keywords and how they allow us to share javascript code 
+ across multile files.
+ - Modular Code.
+ Modular code is code that is seperated inot segments(modules).
+ where each fiel is responsible for a feature or specific functionality.
+
+ Reasons why developers seperate their code:
+
+  1. Stricter variable scope-variable decalred in modules re private unless they are explicitly exported by using modules.
+  2. Single responsibility principle- Each module is responsible for accomplisho=ing a cartian piece of functionality, or addinga specific feature to the application.
+  3. easier to navigate - Modules that are separated and clearly names make code more readable fit another developers.
+  4. Easir to navigate - bugs have less rooms ti hide in isolated,cotained code.
+  Produce clean and dry code - modules can be reused and repurposed throughout applications.
+
+  Modularazing React Code.
+  React make the modulation of code easy by introducing the component structure.
+  it is a standard practice to give each of these compnents their own file.
+
+  Import And Export 
+  - On a simplified level the import and export keywords let us define varibales in one file,
+  and access those variables in other files througout our project.
+  this becomeas increasingly important as we build out larger applications.
+
+  There are two ways to export code in javascript.
+  1.Default Export syntax- we can only use defalut export once per file.this syntax allows us to export one variable per file
+     which we can import in another file.
+
+      the export default allos us rename the exported variable to whatever we want when importing it
+      example
+
+        import React from "react";
+        import aDifferentName from "./parks/howManyParks";
+
+        fucntion ColoradoStateParks(){
+            aDifferentName();
+
+            return <h1>Colorado State Parks!</h1>
+        }
+
+  2. Name export syntax-With named exports, we can expoert multiple variables from a file, for example
+
+      const trees = "Aspen and Pine"
+
+      function wildLife(){
+        console.log("Elk, Bighorn sheep, Moose");
+      } 
+       function elevation(){
+        console.log("9583 ft")
+       }
+        export { trees, wildLife}
+
+- we can import and use them in another file.
+  import {trees, wildLife} from "./parks/RockyMountain";
+
+  console.log(trees);
+   wildLife();
+
+   we can also write export to the fucntion and exort defination.
+
+
+   Importing Multiple Variables 
+   import * RM functions from "./parks/RockyMountains";
+   console.log(RMfucntions.trees);
+    RMfucntions.wildLife();
+    RMfucntions.elevation();
+
+
+    Importing Specific files.
+    the Import {varibale} from syntax allows to access specific varibale by name and use hta variable within our file.
+     for example
+
+     import {trees,wildlife} from "./parks/RockyMountain";
+     consolelog(trees);
+     wildLife();
+
+     we can also rename the specific varibale that have been imported 
+     for example 
+     
+     import { 
+        trees as vegataion,
+        wildLife as wildAnimals,
+     }  from "./park/RockyMountain"
+
